@@ -145,7 +145,6 @@ const MyCart = () => {
         )}
       </div>
 
-      <div></div>
     </>
   );
 };

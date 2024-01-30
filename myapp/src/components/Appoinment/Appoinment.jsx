@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useDispatch, useSelector } from "react-redux";
 import { postBookings } from '../../Redux/Reducer/bookingSlice';
-import { ToastContainer, toast } from "react-toastify";
+import { toast, Toaster } from "react-hot-toast";
 import { Navigate, useNavigate } from 'react-router-dom';
 import './Appoinment.css'
 
@@ -32,6 +32,15 @@ const Appoinment = () => {
     event.preventDefault();
     dispatch(postBookings(data));
 
+    toast.success("Appointment Booked");
+    setTimeout(() => {
+     
+      window.location.reload();
+    }, 3000);
+  
+  
+
+
     // axios
     //   .post("http://localhost:5000/api/appointment/fill-appointment", data)
     //   .then((response) => {
@@ -41,6 +50,10 @@ const Appoinment = () => {
     //   .catch((error) => {
     //     console.log(error);
     //   });
+
+
+
+    
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -48,17 +61,27 @@ const Appoinment = () => {
     }
 
     setValidated(true);
+    
    
     
     }
+    
+   
+
+  
+
   return (
     <>
-   
-    <center>
+    
+     <div>
+     <Toaster position="top-center" reverseOrder={false} />
+
+  
 
       
     <h1><i>Appoinment Form </i></h1>
-    
+    <center>
+    <div className=''>
     <Form noValidate validated={validated} className='formone' onSubmit={handleSubmit} >
         <Form.Group  className='mb-3'>
               <Form.Label>Name</Form.Label>
@@ -179,8 +202,10 @@ const Appoinment = () => {
   
   </Form>
   
+</div>
+</center>
+</div>
 
-  </center>
     </>
   )
 }

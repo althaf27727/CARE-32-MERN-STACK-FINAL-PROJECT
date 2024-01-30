@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import { Link, useNavigate } from "react-router-dom";
+import './Header.css'
 
 
 function Header() {
@@ -19,21 +20,19 @@ function Header() {
   };
   return (
     <>
-      <Navbar
-      style={{backgroundImage:`url("https://images8.alphacoders.com/663/663022.jpg")`}}
-        bg="primary"
-        data-bs-theme="dark"
+      <div>
+      <Navbar 
+      bg='light'
+        data-bs-theme="light"
         collapseOnSelect
         expand="lg"
-        // className="bg-body-tertiary"
+        
+        
       >
-        <Container>
+        <Container >
           <Navbar.Brand as={Link} to="/">
-            <img
-              style={{ width: "55px", height: "30px" }}
-              src={"/images/Care32Logo.png"}
-              alt=""
-            />
+            CARE32 <br />
+            Dental Clinic
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -41,7 +40,7 @@ function Header() {
             <Nav>
             {Role == 4 ? (
                 <>
-                <Nav.Link as={Link} to="/profile">
+                <Nav.Link className="navlink" as={Link} to="/profile">
                   <i>Profile</i>
               
                 </Nav.Link>
@@ -118,8 +117,11 @@ function Header() {
                   <Nav.Link as={Link} to="/add-equipment">
                     <i>Add eq</i>
                   </Nav.Link> */}
-                  <Nav.Link as={Link} to="/add-product">
-                    <i>Add Products</i>
+                  <Nav.Link as={Link} to="/add-medicine">
+                    <i>Add Medicine</i>
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/view-products">
+                    <i>View Products</i>
                   </Nav.Link>
                 </>
               ) : (
@@ -134,14 +136,14 @@ function Header() {
                 
                 <>
                 <Nav.Link as={Link} to="/appointment">
-                  <i>Book your Appointment</i>
+                  Book your Appointment
                 </Nav.Link>
                   <Nav.Link as={Link} to="/register">
-                    <i>Register</i>
+                    Register
                   </Nav.Link>
 
                   <Nav.Link as={Link} to="/login">
-                    <i> Login</i>
+                  Login
                   </Nav.Link>
                 </>
               )}
@@ -149,6 +151,14 @@ function Header() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      </div>
+
+
+
+
+
+
+      
     </>
   );
 }

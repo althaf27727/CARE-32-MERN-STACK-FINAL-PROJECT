@@ -87,6 +87,7 @@ const CheckOut = () => {
 </center>
         
     </div>
+
   )
 }
 

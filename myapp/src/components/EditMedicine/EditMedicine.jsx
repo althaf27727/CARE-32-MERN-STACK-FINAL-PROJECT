@@ -1,46 +1,63 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { ToastContainer, toast } from "react-toastify";
+import axios from 'axios'
 
-import axios from "axios";
 
-const AddMedicine = () => {
+const EditMedicine = () => {
+    const navigate = useNavigate();
+  const { id } = useParams();
+  console.log(id);
+
+
   const [data, setData] = useState({});
   const [file, setFile] = useState();
+
+
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/api/medicine/view-medicine/${id}`)
+      .then((response) => {
+        console.log(response);
+        setData(response.data.data);
+      });
+  },[id]);
 
   const handlechange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setData({ ...data, [name]: value });
-    console.log(data);
   };
 
   const handleSubmit = (event) => {
-    const formData = new FormData();
 
-    formData.append("name", data.name);
-    formData.append("description", data.description);
-    formData.append("price", data.price);
-    formData.append("image", file);
+    const formData = new FormData();
+ 
+  formData.append("name", data.name);
+  formData.append("description", data.description);
+  formData.append("price", data.price);
+  formData.append("image", file);
+  for (const value of formData.values()) {
+    console.log(value);
+  }    
+  
 
     event.preventDefault();
     axios
-      .post("http://localhost:5000/api/medicine/add-medicine", formData)
+      .post(`http://localhost:5000/api/medicine/update-medicine/${id}`, data)
       .then((response) => {
         console.log(response);
-        setData(response.data.data);
       })
       .catch((error) => {
         console.log(error);
       });
+     
   };
-  
-  
   return (
     <div>
-    
-      <Form
+        <Form
         style={{ marginTop: "50px", backgroundImage: {} }}
         onSubmit={handleSubmit}
       >
@@ -51,6 +68,9 @@ const AddMedicine = () => {
             onChange={handlechange}
             type="text"
             name="name"
+            value={data.name}
+
+            
           />
         </Form.Group>
 
@@ -61,6 +81,8 @@ const AddMedicine = () => {
             onChange={handlechange}
             type="text"
             name="description"
+            value={data.description}
+
           />
         </Form.Group>
 
@@ -71,25 +93,35 @@ const AddMedicine = () => {
             onChange={handlechange}
             type="text"
             name="price"
+            value={data.price}
+
           />
         </Form.Group>
 
+        <div> 
+            <img style={{height:'100px'}} src={data.image} alt="" />
+        </div>
+
         <Form.Group className="mb-3">
-          <Form.Label>Upload Image</Form.Label>
+          <Form.Label>Choose Image</Form.Label>
           <Form.Control
             style={{ width: "300px", border: "2px solid grey" }}
-            onChange={(e) => setFile(e.target.files[0])}
             type="file"
             name="image"
+            onChange={(e) => setFile(e.target.files[0])}
+            
+
+
           />
         </Form.Group>
 
         <Button variant="primary" type="submit">
-          Add Product
+          Update Product
         </Button>
       </Form>
-    </div>
-  );
-};
 
-export default AddMedicine;
+    </div>
+  )
+}
+
+export default EditMedicine

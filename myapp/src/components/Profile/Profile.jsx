@@ -106,13 +106,15 @@ const Profile = () => {
                 <Button className="button" variant="dark"> Add address</Button>
               </Link>
       </Card>
-      <div></div>
+      <div>
+        {/* <button className="btn">Hover me</button> */}
+</div>
       
             
              
 
 {/* <div className="card">
-  <img src="img.jpg" alt="John" style={{ width: "100%" }} />
+  
   <h1>John Doe</h1>
   <p className="title">CEO &amp; Founder, Example</p>
   <p>Harvard University</p>
@@ -133,7 +135,27 @@ const Profile = () => {
   </p>
 </div> */}
 
+
+{/* <div><div className="container">
+  <div className="card card0">
+    <div className="border">
+      <h2>{data.username}</h2>
+      <div className="icons">
+        <i className="fa fa-codepen" aria-hidden="true" />
+        <i className="fa fa-instagram" aria-hidden="true" />
+        <i className="fa fa-dribbble" aria-hidden="true" />
+        <i className="fa fa-twitter" aria-hidden="true" />
+        <i className="fa fa-facebook" aria-hidden="true" />
+      </div>
     </div>
+  </div>
+  
+   */}
+</div>
+
+
+
+
     
   );
 };

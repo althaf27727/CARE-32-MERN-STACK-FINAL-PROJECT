@@ -10,6 +10,7 @@ const Editpatient = () => {
   console.log(id);
 
   const [data, setData] = useState({});
+  
   useEffect(() => {
     axios
       .get(`http://localhost:5000/api/patientdetails/view-ptd/${id}`)

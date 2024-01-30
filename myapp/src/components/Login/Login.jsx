@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 // import { ToastContainer, toast } from "react-toastify";
 import { toast, Toaster } from "react-hot-toast";
+import './Login.css'
 
 
 const Login = () => {
@@ -41,19 +42,13 @@ const Login = () => {
       })
   };
   return (
+    <div  className="login">
     <div>
            <Toaster position="top-center" reverseOrder={false} />
+      <center>
 
-      <center>
-        <div>
-          <h1 style={{ marginTop: "80px" }}>
-            {" "}
-            <i> Have we met? Log in! </i>
-          </h1>{" "}
-        </div>{" "}
-      </center>
-      <center>
-        <Form>
+        <Form className="glass" style={{marginTop:'150px'}} >
+          <h1>Have we met login</h1>
           <Form.Group className="mb-3">
             <Form.Label>Username</Form.Label>
             <Form.Control
@@ -86,6 +81,8 @@ const Login = () => {
         </Form>
       </center>
     </div>
+    </div>
+
   );
 };
 

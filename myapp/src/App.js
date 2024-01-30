@@ -25,7 +25,6 @@ import AddMedicine from "./components/AddMedicine/AddMedicine";
 import Equipment from "./components/Equipment/Equipment";
 import ViewEquipments from "./components/ViewEquipments/ViewEquipments";
 import ViewMedicines from "./components/ViewMedicines/ViewMedicines";
-import AddProducts from "./components/AddProducts/AddProducts";
 import WishList from "./components/WishList/WishList";
 import MyCart from "./components/MyCart/MyCart";
 import Address from "./components/Address/Address";
@@ -33,6 +32,9 @@ import Footer from "./components/Footer/Footer";
 import CheckOut from "./components/CheckOut/CheckOut";
 import ProfileAddress from "./components/ProfileAddress/ProfileAddress";
 import Payment from "./components/Payment/Payment";
+import ViewProducts from "./components/ViewProducts/ViewProducts";
+import EditMedicine from "./components/EditMedicine/EditMedicine";
+
 function App() {
   return (
     <>
@@ -60,13 +62,14 @@ function App() {
           <Route path="/add-equipment" element={<Equipment/>}/>
           <Route path="/view-equipment" element={<ViewEquipments/>}/>
           <Route path="/view-medicine" element={<ViewMedicines/>} />
-          <Route path="/add-product" element={<AddProducts/>}/>
           <Route path="/view-wishlist" element={<WishList/>} />
           <Route path="/view-mycart" element={<MyCart/>} />
           <Route path="/add-address" element={<Address/>} />
           <Route path="/profile-address" element={<ProfileAddress/>} />
           <Route path="/checkout" element={<CheckOut/>} />
           <Route path="/payment/:total" element={<Payment/>} />
+          <Route path="/view-products" element={<ViewProducts/>}/>
+          <Route path="/edit-medicine/:id" element= {<EditMedicine/>}/>
 
         </Routes>
         <Footer/>

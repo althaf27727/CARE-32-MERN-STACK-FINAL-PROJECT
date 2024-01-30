@@ -58,18 +58,7 @@ const ViewMedicines = () => {
   };
   return (
     <div>
-        <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
+       
       <div
         className="row"
         style={{
@@ -81,7 +70,8 @@ const ViewMedicines = () => {
       >
         {data.map((item) => (
           <Card border="info" style={{ width: "15rem" }}>
-            <Card.Img variant="top" src={`/images/${item.image}`} />
+            {/* <Card.Img variant="top" src={`/images/${item.image}`} /> */}
+            <Card.Img variant="top" src={item.image} />
             <Card.Body>
               <Card.Title>{item.name}</Card.Title>
               <Card.Text>{item.description}</Card.Text>
