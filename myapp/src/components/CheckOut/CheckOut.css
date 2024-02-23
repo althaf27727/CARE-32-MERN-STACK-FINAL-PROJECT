@@ -53,9 +53,7 @@
       .table-header {
         display: none;
       }
-      .table-row{
-        
-      }
+    
       li {
         display: block;
       }
@@ -77,3 +75,12 @@
       }
     }
   }
+
+.col-25 {
+  padding: 0 16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}

@@ -77,14 +77,14 @@ const productid= req.body._id
           res.status(200).json({
             success: true,
             error: false,
-            message: "added to cart",
+            message: "Added to cart",
             data: result,
           });
         } else {
           res.status(400).json({
             success: false,
             error: true,
-            message: "data not added",
+            message: "Data not added",
           });
         }
       }

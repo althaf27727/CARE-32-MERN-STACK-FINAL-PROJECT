@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { Link, useNavigate } from "react-router-dom";
-import './Profile.css';
+import { Link, useNavigate, useParams } from "react-router-dom";
+import "./Profile.css";
 import axios from "axios";
 
 const Profile = () => {
@@ -10,6 +10,21 @@ const Profile = () => {
   const Role = localStorage.getItem("Role");
   console.log(Role);
   console.log(Token);
+
+  // const [address, setAddress] = useState([]);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:5000/api/address/view-address", {
+  //       headers: {
+  //         Authorization: `Bearer ${Token}`,
+  //       },
+  //     })
+
+  //     .then((response) => {
+  //       console.log(response);
+  //       setAddress(response.data.data);
+  //     });
+  // }, []);
 
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -50,15 +65,11 @@ const Profile = () => {
         });
     }
   }, []);
-  console.log(data);
+
   return (
     <div>
-      
-     
-
-
-      <Card style={{marginTop:"100px"}}>
-        <Card.Img variant="top" src="holder.js/100px180" />
+      {/* <Card style={{marginTop:"100px"}}>
+        <Card.Img />
 
         <Card.Body>
           {Role==4?(
@@ -102,61 +113,77 @@ const Profile = () => {
             Username: {data.username} <i></i>
           </Card.Text>
         </Card.Body>
+    
         <Link to={`/profile-address`}>
                 <Button className="button" variant="dark"> Add address</Button>
               </Link>
-      </Card>
-      <div>
-        {/* <button className="btn">Hover me</button> */}
-</div>
-      
-            
+      </Card> */}
+<center>
+<div style={{marginTop:"100px"}} className="card-container" >
+   
+<img style={{marginTop:'50px'}}
+    className="round zoom"
+    src="https://static.thenounproject.com/png/363641-200.png"
+    alt="user"
+  />
+        <Card.Body className="cardbody">
+          {Role == 4 ? (
+            ""
+          ) : (
+            <>
+             <Card.Title style={{marginTop:'5px'}}> {data.name}</Card.Title>
+              <Card.Text>
+                {" "}
+
+                <br />
+                <b>Mobile:</b> <i>{data.mobile}</i>
+              </Card.Text>
+
+
+            </>
+          )}
+
+          {Role == 2 ? (
+            <>
              
+            </>
+          ) : (
+            ""
+          )}
+          {Role == 3 ? (
+            <>
+              <Card.Text>Location: {data.place}</Card.Text>
+              <Card.Text>Age: {data.age}</Card.Text>
+            </>
+          ) : (
+            ""
+          )}
+          {Role == 4 ? (
+            <>
+              <Card.Text> {data.docname}</Card.Text>
+              <Card.Text>Specialization: {data.specialization}</Card.Text>
+              <Card.Text>Email: {data.email}</Card.Text>
+              <Card.Text>Mobile: {data.mobile}</Card.Text>
+            </>
+          ) : (
+            ""
+          )}
 
-{/* <div className="card">
+          <Card.Text>
+            Username: {data.username} <i></i>
+          </Card.Text>
+          <center><Link to={`/myaddress`}>
+          <Button  style={{width:"200px"}}>Manage Addresses</Button>
+          </Link>
+</center>
+        </Card.Body>
+</div>      </center>
+
+
+
+
   
-  <h1>John Doe</h1>
-  <p className="title">CEO &amp; Founder, Example</p>
-  <p>Harvard University</p>
-  <a href="#">
-    <i className="fa fa-dribbble" />
-  </a>
-  <a href="#">
-    <i className="fa fa-twitter" />
-  </a>
-  <a href="#">
-    <i className="fa fa-linkedin" />
-  </a>
-  <a href="#">
-    <i className="fa fa-facebook" />
-  </a>
-  <p>
-    <button>Contact</button>
-  </p>
-</div> */}
-
-
-{/* <div><div className="container">
-  <div className="card card0">
-    <div className="border">
-      <h2>{data.username}</h2>
-      <div className="icons">
-        <i className="fa fa-codepen" aria-hidden="true" />
-        <i className="fa fa-instagram" aria-hidden="true" />
-        <i className="fa fa-dribbble" aria-hidden="true" />
-        <i className="fa fa-twitter" aria-hidden="true" />
-        <i className="fa fa-facebook" aria-hidden="true" />
-      </div>
     </div>
-  </div>
-  
-   */}
-</div>
-
-
-
-
-    
   );
 };
 

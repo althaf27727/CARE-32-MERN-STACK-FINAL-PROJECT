@@ -15,13 +15,10 @@
 .hone{
     font-family: 'Afacad';
     color: #72A0C1;
-    font-size: 70px;
-    margin-top: 500px;
 }
 .htwo{
     font-family: 'Afacad';
     color: black;
-    font-size: 70px;
     }
 
 
@@ -38,13 +35,13 @@
   box-sizing: border-box;
 }
 
-html {
+/* html {
   background-color: #ecf9ff;
-}
+} */
 
 body {
   color: #272727;
-  font-family: 'Quicksand', serif;
+  font-family: 'Afacad';
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0;
@@ -70,9 +67,15 @@ img {
 
 
 
-.btn:hover {
-  background-color: rgba(255, 255, 255, 0.12);
-}
+/* caraousel */
+
+
+
+
+
+
+
+
 
 .cards {
   display: flex;
@@ -110,7 +113,7 @@ img {
 
 .card_content {
   padding: 1rem;
-  background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+  background: linear-gradient(to bottom left, #2b2a2a 40%, #000000 100%);
 }
 
 .card_title {
@@ -135,3 +138,44 @@ img {
   margin-top: 35px;
   text-align: center;
 }
+/* .card:hover {
+  transform: scale(1.1);
+}
+.cards_item {
+  transition: transform 0.2s;
+} */
+.responsive{
+  width: 100%;
+  height: auto;
+}
+
+
+
+/* parallax */
+
+
+.parallax {
+  /* The image used */
+  background-image: url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  /* filter: blur(5px);
+  -webkit-filter: blur(5px); */
+  /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* @media only screen and (max-device-width: 1366px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+} */
+
+.demo{
+  background: linear-gradient(to bottom left, #ffffff 40%, #72A0C1 100%);
+}
+

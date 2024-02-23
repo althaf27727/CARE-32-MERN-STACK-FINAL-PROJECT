@@ -19,6 +19,8 @@ const Payment = () => {
   });
   console.log(total);
 
+
+
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/mycart/view-mycart", {
@@ -36,6 +38,13 @@ const Payment = () => {
   return (
     <div>
       <h1>TOTAL AMOUNT :{data.total}</h1>
+
+
+      <div>
+
+
+
+      </div>
     </div>
     
   );

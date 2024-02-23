@@ -29,6 +29,7 @@ const EditMedicine = () => {
     const name = event.target.name;
     const value = event.target.value;
     setData({ ...data, [name]: value });
+    console.log(data);
   };
 
   const handleSubmit = (event) => {
@@ -46,7 +47,7 @@ const EditMedicine = () => {
 
     event.preventDefault();
     axios
-      .post(`http://localhost:5000/api/medicine/update-medicine/${id}`, data)
+      .post(`http://localhost:5000/api/admin/update-medicine/${id}`, formData)
       .then((response) => {
         console.log(response);
       })
@@ -57,6 +58,7 @@ const EditMedicine = () => {
   };
   return (
     <div>
+      <div>
         <Form
         style={{ marginTop: "50px", backgroundImage: {} }}
         onSubmit={handleSubmit}
@@ -102,7 +104,7 @@ const EditMedicine = () => {
             <img style={{height:'100px'}} src={data.image} alt="" />
         </div>
 
-        <Form.Group className="mb-3">
+        {/* <Form.Group className="mb-3">
           <Form.Label>Choose Image</Form.Label>
           <Form.Control
             style={{ width: "300px", border: "2px solid grey" }}
@@ -113,12 +115,24 @@ const EditMedicine = () => {
 
 
           />
-        </Form.Group>
+        </Form.Group> */}
+   
+   <form >
+  <label ></label>
+  <input type="file" name='image' 
+              onChange={(e) => setFile(e.target.files[0])}
+              />
+ 
+</form>
+
 
         <Button variant="primary" type="submit">
           Update Product
         </Button>
       </Form>
+      </div>
+
+
 
     </div>
   )

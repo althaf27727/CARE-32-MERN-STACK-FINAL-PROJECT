@@ -95,31 +95,42 @@ addmedicineroutes.get("/view-medicine/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-addmedicineroutes.post('/update-medicine/:id',
-upload.single("image"),
-(req, res) => {
-console.log(req.file);
-  Medicine.findOne({
-    _id: req.params.id,
-  })
-  
-  .then((data) => {
-      data.name=req.body.name,
-      data.description=req.body.description,
-   data.price=req.body.price,
-   data.image= req.file ? req.file.path : null
 
-data.save()
-.then((data)=>{
-  res.status(200).json({
-      success: true,
-      error: false,
-      data: data,
-    });
+addmedicineroutes.delete('/delete-medicine/:id', (req, res) => {
+  Medicine.deleteOne({
+      _id: req.params.id,
+  })
+      .then(() => {
+          res.send("Deleted Successfully")
+      })
+      .catch((err) => console.log(err));
 })
+// addmedicineroutes.post('/update-medicine/:id',
+// upload.single("image"),
+// (req, res) => {
+// console.log("fileeeeeee",req.file);
+//   Medicine.findOne({
+//     _id: req.params.id,
+//   })
+  
+//   .then((data) => {
+//     console.log(data)
+//       data.name=req.body.name,
+//       data.description=req.body.description,
+//    data.price=req.body.price,
+//    data.image= req.file ? req.file.path : null
+
+// data.save()
+// .then((data)=>{
+//   res.status(200).json({
+//       success: true,
+//       error: false,
+//       data: data,
+//     });
+// })
      
-    })
-    .catch((err) => console.log(err));
-});
+//     })
+//     .catch((err) => console.log(err));
+// });
 
 module.exports = addmedicineroutes;

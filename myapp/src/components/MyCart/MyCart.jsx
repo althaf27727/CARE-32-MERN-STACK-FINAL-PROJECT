@@ -28,7 +28,11 @@ const MyCart = () => {
 
   const navigate = useNavigate();
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/api/mycart/delete-cartitem/${id}`);
+    axios.delete(`http://localhost:5000/api/mycart/delete-cartitem/${id}`,{}, {
+      headers: {
+        Authorization: `Bearer ${Token}`,
+      },
+    });
     window.location.reload();
     navigate("/view-mycart");
   };
@@ -82,7 +86,8 @@ const MyCart = () => {
             {data.map((item) => (
               <>
                 <Card style={{ width: "15rem" }}>
-                  <Card.Img variant="top" src={`/images/${item.image}`} />
+                  {/* <Card.Img variant="top" src={`/images/${item.image}`} /> */}
+                  <Card.Img variant="top" src={item.image} />
 
                   <Card.Body>
                     <Card.Title>Medicine Name: {item.name}</Card.Title>
@@ -127,7 +132,7 @@ const MyCart = () => {
               </>
             ))}
 
-            <center> 
+            <center>
               {" "}
               <h1>Total:{total}</h1>
             </center>
@@ -135,7 +140,7 @@ const MyCart = () => {
             <br />
             <br />
             <center>
-              <Link to={`/add-address`}>
+              <Link to={`/checkout`}>
                 <Button variant="dark"> Buy now</Button>
               </Link>
             </center>
@@ -144,7 +149,6 @@ const MyCart = () => {
           <p>No items in cart</p>
         )}
       </div>
-
     </>
   );
 };

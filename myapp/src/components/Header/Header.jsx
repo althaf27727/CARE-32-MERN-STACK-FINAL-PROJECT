@@ -37,7 +37,7 @@ function Header() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
-            <Nav>
+            <Nav className="nav">
             {Role == 4 ? (
                 <>
                 <Nav.Link className="navlink" as={Link} to="/profile">

@@ -45,7 +45,7 @@ const WishList = () => {
       
       {data.map((item) => (
           <Card style={{ width: "15rem" }}>
-            <Card.Img variant="top" src={`/images/${item.image}`} />
+            <Card.Img variant="top" src={item.image} />
 
             <Card.Body>
               <Card.Title>Medicine Name: {item.name}</Card.Title>

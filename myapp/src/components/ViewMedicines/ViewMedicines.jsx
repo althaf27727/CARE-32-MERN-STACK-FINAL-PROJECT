@@ -58,7 +58,7 @@ const ViewMedicines = () => {
   };
   return (
     <div>
-       
+       <div className="box">
       <div
         className="row"
         style={{
@@ -69,9 +69,9 @@ const ViewMedicines = () => {
         }}
       >
         {data.map((item) => (
-          <Card border="info" style={{ width: "15rem" }}>
+          <Card border="info" style={{ width: "18rem" }}>
             {/* <Card.Img variant="top" src={`/images/${item.image}`} /> */}
-            <Card.Img variant="top" src={item.image} />
+            <Card.Img  variant="top" src={item.image} />
             <Card.Body>
               <Card.Title>{item.name}</Card.Title>
               <Card.Text>{item.description}</Card.Text>
@@ -100,6 +100,7 @@ const ViewMedicines = () => {
           </Card>
         ))}
       </div>
+    </div>
     </div>
   );
 };

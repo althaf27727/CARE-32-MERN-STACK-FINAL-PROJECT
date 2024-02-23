@@ -25,6 +25,7 @@ const SpecificDoctor = () => {
       .then((response) => {
         console.log(response);
       })
+
       .catch((error) => {
         console.log(error);
       });
@@ -33,7 +34,7 @@ const SpecificDoctor = () => {
   return (
    <>
      <center>
-    <h1><i>Appoinment Form </i></h1>
+    <h1><i>Appoinment Form</i></h1>
     
     <Form onSubmit={handleSubmit} >
         <Form.Group className="mb-3">
@@ -54,8 +55,8 @@ const SpecificDoctor = () => {
         onChange={handlechange}
         type="text"
         name="age"
-        
       />
+
     </Form.Group>
     <Form.Group className="mb-3">
             <Form.Label>Gender</Form.Label>

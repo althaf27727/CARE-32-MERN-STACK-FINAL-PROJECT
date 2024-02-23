@@ -14,7 +14,6 @@ const appoinmentroutes = require('./routes/appoinmentroutes');
 const viewdoctorroutes = require('./routes/viewdoctorroutes');
 const {v4 : uuidv4} = require('uuid');
 const addmedicineroutes = require('./routes/addmedicineroutes');
-const equipmentroutes = require('./routes/equipmentroutes');
 const wishlistroutes = require('./routes/wishlistroutes');
 const mycartroutes = require('./routes/mycartroutes');
 const addressRoutes = require('./routes/addressRoutes');
@@ -40,7 +39,6 @@ index.use("/api/appointment", appoinmentroutes)
 index.use("/api/viewdoc", viewdoctorroutes)
 index.use("/api/profile", LoginRouter)
 index.use("/api/medicine", addmedicineroutes)
-index.use("/api/equipment", equipmentroutes)
 index.use("/api/wishlist", wishlistroutes)
 index.use("/api/mycart", mycartroutes)
 index.use("/api/address", addressRoutes)

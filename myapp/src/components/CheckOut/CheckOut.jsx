@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Navigate, useNavigate, Link } from 'react-router-dom';
+import { Navigate, useNavigate, Link, useParams } from 'react-router-dom';
 import "./CheckOut.css"
 import Button from "react-bootstrap/Button";
+import Card from 'react-bootstrap/Card';
 
 const CheckOut = () => {
     var Token = localStorage.getItem("Token");
@@ -10,6 +11,7 @@ const CheckOut = () => {
 
   const UserId = localStorage.getItem("UserId");
   console.log(UserId);
+
 
   const [data, setData] = useState([]);
   const navigate = useNavigate();
@@ -27,6 +29,23 @@ const CheckOut = () => {
         setData(response.data.data);
       });
   }, []);
+
+  const [address, setAddress] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/address/view-address", {
+        headers: {
+          Authorization: `Bearer ${Token}`,
+        },
+      })
+
+      .then((response) => {
+        console.log(response);
+        setAddress(response.data.data);
+      });
+  }, []);
+
+  
   const subTotal = data.map((item) => {
     return item.price * item.quantity;
   });
@@ -34,6 +53,14 @@ const CheckOut = () => {
 
   const total = subTotal.reduce((total, item) => total + item, 0);
   console.log(total);
+
+  const [selectedAddress, setSelectedAddress] = useState(null);
+
+  const handleRadioChange = (address) => {
+    setSelectedAddress(address);
+  };
+
+
   return (
     <div>
         <div>
@@ -86,7 +113,52 @@ const CheckOut = () => {
           </Link>
 </center>
         
-    </div>
+
+
+     
+
+    
+ 
+ <div>
+        {address.map((item) => (
+          <Card key={item.id} className='addresscard'>
+            <Card.Body>
+              <Card.Title>{item.name}</Card.Title>
+              <Card.Text>
+                {item.mobile} <br />
+                {item.address} <br />
+              </Card.Text>
+              <label className="container">
+                select
+                <input
+                  type="radio"
+                  name="address"
+                  value='select'
+                  onChange={() => handleRadioChange(item)}
+                />
+              </label>
+            </Card.Body>
+          </Card>
+        ))}
+      </div>
+      <center>
+      {selectedAddress && (
+        <div>
+          <h2>Selected Address:</h2>
+          <p>{selectedAddress.name}</p>
+          <p>{selectedAddress.mobile}</p>
+          <p>{selectedAddress.address}</p>
+        </div>
+
+      )}
+      </center>
+</div>
+
+
+
+
+
+
 
   )
 }

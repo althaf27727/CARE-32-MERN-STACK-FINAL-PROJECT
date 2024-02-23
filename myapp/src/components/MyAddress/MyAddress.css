@@ -1,0 +1,17 @@
+.addresscard{
+    width: 500px;
+    
+}
+
+
+  
+  div.transbox {
+    margin: 80px;
+    border: 1px solid black;
+  }
+  
+  div.transbox p {
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
+  }

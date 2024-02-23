@@ -34,9 +34,13 @@ const ViewDoctor = () => {
     >
       {data.map((item) => (
         <Card style={{ width: "15rem" }}>
-          <Card.Img
+          {/* <Card.Img
             variant="top"
             src={`/images/${item.image}`}
+          /> */}
+           <Card.Img
+            variant="top"
+            src={item.image}
           />
           <Card.Body>
             <Card.Title>{item.doctorname}</Card.Title>
@@ -47,11 +51,12 @@ const ViewDoctor = () => {
             <Card.Text>{item.address}</Card.Text>
             <Card.Text>{item.phone}</Card.Text>
             <Card.Text>{item.email}</Card.Text>
+
           </Card.Body>
           <Button onClick={() => handleDelete(item._id)} variant="primary" type="submit">
             Delete
           </Button>
-          <Link to={`/ptedit/${item._id}`}>
+          <Link to={`/edit-doc/${item._id}`}>
           <Button> Edit</Button>
           </Link>
           
