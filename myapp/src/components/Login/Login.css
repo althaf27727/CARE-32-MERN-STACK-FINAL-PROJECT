@@ -1,125 +1,30 @@
-.login{
-    background-image: url('https://media.istockphoto.com/id/615890680/photo/portrait-of-happy-patient-in-dental-chair.jpg?s=2048x2048&w=is&k=20&c=GdcUAwryEZFuMuNKYNupMGx-h9KlYXpBNUANWoroeS8=');
-    position: fixed;
-    min-width: 100%;
-    min-height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    
+
+.login-container {
+  display: flex;
+  align-items: center;
+}
+
+.side-image {
+  max-width: 50%;
+  height: auto;
+  margin-right: 50px; 
+}
+
+.login-container {
+  max-width: 600px; 
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    max-width: 80%; 
   }
 
-
-
-
-
-  /* @media (min-width: 432px) { 
-    .glass{
-      width: 100px; ;
-    }
-       }
-  @media (max-width: 498px) { 
-    .glass{
-      width: 200px; ;
-    }
-       }
-
-
-
-
-  @media (max-width: 575.98px) { 
-.glass{
-  width: 500px; ;
-}
-   }
-  
-  @media (max-width: 767.98px) { 
-.glass{
-  width: 250px;
-}
-   }
-  
-  @media (max-width: 991.98px) {
-  .glass{
-    width: 300px;
-  }
-}
-  @media (max-width: 1199.98px) {  
-  .glass{
-    width: 350px;
-  }
-}
-  @media (max-width: 1399.98px) { 
-.glass{
-  width: 400px;
-}
+  .side-image {
+    display: none; 
   }
 
-  @media (max-width: 1536px) { 
-    .glass{
-      width: 500px;
-    }
-      } */
-      @media (max-width: 350px) {
-        .glass{
-          max-width: 50px;
-        }
-    }
-  
-
-
-
-
-
-      @media (max-width: 500px) {
-        .glass{
-          max-width: 100px;
-        }
-    }
-  
-
-
-   
-    @media (min-width: 600px) {
-        .glass{
-          max-width: 200px;
-        }
-    }
-    
-    
-    @media (min-width: 768px)  {
-        .glass{
-          max-width: 300px;
-        }
-    }
-    
-    
-    @media (min-width: 992px) { 
-        .glass{
-           max-width: 500px;
-        }
-    }
-    
-    @media (min-width: 1200px)  { 
-        .glass{
-           max-width: 500px;
-        }
-     }
-
-      
- 
-
-
- 
-
-
-
-  .glass{
-
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border:1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  Form.Control {
+    width: 100%;
   }
+}

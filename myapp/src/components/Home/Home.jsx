@@ -17,7 +17,7 @@ const Home = () => {
   // const [data, setData] = useState([]);
   useEffect(() => {
     // axios
-    //   .get("http://localhost:5000/api/viewdoc/view-doctor")
+    //   .get(`${BASE_URL}/api/viewdoc/view-doctor`)
     //   .then((response) => {
     //     console.log(response);
     //     setData(response.data.data);
@@ -96,11 +96,12 @@ const Home = () => {
       <>
         <div className="parallax">
           <div>
-            <h1>YOUR SMILE</h1>
             <center>
-              <button style={{ color: "white", backgroundColor: "#008CBA" }}>
+            <Link to={`/appointment`}>
+              <button style={{ color: "white", backgroundColor: "#008CBA",marginTop:'10px' }}>
                 Request Appointment
               </button>
+              </Link>
             </center>
           </div>{" "}
         </div>

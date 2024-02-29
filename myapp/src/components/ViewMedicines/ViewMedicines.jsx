@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { BASE_URL } from "../../constants/API";
 
 
 const ViewMedicines = () => {
@@ -20,7 +21,7 @@ const ViewMedicines = () => {
   }, []);
      const addToMycart = (item) => {
         axios
-        .post("http://localhost:5000/api/mycart/addto-mycart", item,{
+        .post(`${BASE_URL}api/mycart/addto-mycart`, item,{
           headers:{
             Authorization: `Bearer ${Token}`
           }
@@ -41,7 +42,7 @@ const ViewMedicines = () => {
 
   const addToWishlist = (item) => {
     axios
-      .post("http://localhost:5000/api/wishlist/add-wishlist", item,{
+    .post(`${BASE_URL}/api/wishlist/add-wishlist`, item,{
         headers:{
             Authorization: `Bearer ${Token}`
         }
@@ -56,6 +57,21 @@ const ViewMedicines = () => {
       
       
   };
+  //     .post("http://localhost:5000/api/wishlist/add-wishlist", item,{
+  //       headers:{
+  //           Authorization: `Bearer ${Token}`
+  //       }
+  //     })
+      
+  //     .then((response) => {
+  //       console.log(response);
+  //       setData(response.data.data);
+  //     });
+
+   
+      
+      
+  // };
   return (
     <div>
        <div className="box">

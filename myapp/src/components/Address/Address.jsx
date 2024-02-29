@@ -8,6 +8,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 // import Card from "react-bootstrap/Card";
 
 import axios from "axios"
+import { BASE_URL } from '../../constants/API';
 const Address = () => {
     const Token = localStorage.getItem("Token");
   console.log(Token);
@@ -39,7 +40,12 @@ const Address = () => {
     const handleSubmit = (event) => {
       event.preventDefault();
       axios
-      .post("http://localhost:5000/api/address/add-address", data,{
+      // .post("http://localhost:5000/api/address/add-address", data,{
+      //   headers: {
+      //     Authorization: `Bearer ${Token}`,
+      //   },
+      // })
+      .post(`${BASE_URL}/api/address/add-address`, data,{
         headers: {
           Authorization: `Bearer ${Token}`,
         },

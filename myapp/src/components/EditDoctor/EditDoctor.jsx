@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import axios from 'axios'
+import { BASE_URL } from '../../constants/API';
 
 
 const EditDoctor = () => {
@@ -50,14 +51,20 @@ const EditDoctor = () => {
   
       event.preventDefault();
       axios
-        .post(`http://localhost:5000/api/admin/update-doctor/${id}`, formData)
+        // .post(`http://localhost:5000/api/admin/update-doctor/${id}`, formData)
+        // .then((response) => {
+        //   console.log(response);
+        // })
+        // .catch((error) => {
+        //   console.log(error);
+        // });
+        .post(`${BASE_URL}/api/admin/update-doctor/${id}`, formData)
         .then((response) => {
           console.log(response);
         })
         .catch((error) => {
           console.log(error);
         });
-       
     };
   return (
     <div>
@@ -87,12 +94,11 @@ const EditDoctor = () => {
             type="text"
             name="gender"
             value={data.gender}
-
           />
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>age</Form.Label>
+          <Form.Label>Age</Form.Label>
           <Form.Control
             style={{ width: "300px", border: "2px solid grey" }}
             onChange={handlechange}

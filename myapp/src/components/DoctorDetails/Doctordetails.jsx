@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import axios from "axios"
+import { BASE_URL } from "../../constants/API";
 
 
 const Doctordetails = () => {
@@ -37,7 +38,15 @@ const Doctordetails = () => {
   
     event.preventDefault();
     axios
-      .post("http://localhost:5000/api/admin/add-doctor", formData)
+      // .post("http://localhost:5000/api/admin/add-doctor", formData)
+      // .then((response) => {
+      //   console.log(response);
+      //   setData(response.data.data);
+      // })
+      // .catch((error) => {
+      //   console.log(error);
+      // });
+      .post(`${BASE_URL}/api/admin/add-doctor`, formData)
       .then((response) => {
         console.log(response);
         setData(response.data.data);
@@ -45,6 +54,7 @@ const Doctordetails = () => {
       .catch((error) => {
         console.log(error);
       });
+
   };
   return (
     <div>

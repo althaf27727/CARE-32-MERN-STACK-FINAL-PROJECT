@@ -1,12 +1,15 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { BASE_URL } from '../../constants/API';
 
 const initialState={
     bookingData:[],
     status:"idle"
 }
 export const postBookings= createAsyncThunk('bookings/post',async(data)=>{
-    const response = await axios.post('http://localhost:5000/api/appointment/fill-appointment',data)
+    // const response = await axios.post('http://localhost:5000/api/appointment/fill-appointment',data)
+    const response = await axios.post(`${BASE_URL}/api/appointment/fill-appointment`,data)
+
 
     const result= response
     console.log(result);

@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 import axios from "axios";
+import { BASE_URL } from "../../constants/API";
 
 const PatientReg = () => {
   const [data, setData] = useState({});
@@ -15,7 +16,16 @@ const PatientReg = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:5000/api/patientdetails/add-ptd", data)
+  //     .post("http://localhost:5000/api/patientdetails/add-ptd", data)
+  //     .then((response) => {
+  //       console.log(response);
+  //       setData(response.data.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+  .post(`${BASE_URL}/api/patientdetails/add-ptd`, data)
       .then((response) => {
         console.log(response);
         setData(response.data.data);

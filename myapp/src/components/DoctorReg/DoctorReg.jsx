@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import axios from "axios"
+import { BASE_URL } from '../../constants/API';
 
 const DoctorReg = () => {
     const [data, setData] = useState({});
@@ -13,14 +14,23 @@ const DoctorReg = () => {
     };
     const handleSubmit = (event) => {
       event.preventDefault();
-      axios.post("http://localhost:5000/api/docreg", data)
-        .then((response) => {
-          console.log(response);
-          setData(response.data.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      axios
+      // .post("http://localhost:5000/api/docreg", data)
+      //   .then((response) => {
+      //     console.log(response);
+      //     setData(response.data.data);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
+      .post(`${BASE_URL}/api/docreg`, data)
+      .then((response) => {
+        console.log(response);
+        setData(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     };
   return (
     <div><Form onSubmit={handleSubmit}>

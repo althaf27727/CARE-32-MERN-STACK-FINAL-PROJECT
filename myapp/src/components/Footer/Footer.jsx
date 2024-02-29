@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link, useNavigate } from "react-router-dom";
-import Carousel from "react-bootstrap/Carousel";
+
 import './Footer.css';
 function Footer() {
   
@@ -13,7 +12,7 @@ function Footer() {
       CARE 32<span>DENTALS</span>
     </h3>
     <p className="footer-links">
-      <a href="#" className="">
+      <a href="" className="">
         Home
       </a>
       

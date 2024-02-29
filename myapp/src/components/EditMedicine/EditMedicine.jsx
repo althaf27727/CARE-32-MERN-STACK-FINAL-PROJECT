@@ -47,6 +47,13 @@ const EditMedicine = () => {
 
     event.preventDefault();
     axios
+      // .post(`http://localhost:5000/api/admin/update-medicine/${id}`, formData)
+      // .then((response) => {
+      //   console.log(response);
+      // })
+      // .catch((error) => {
+      //   console.log(error);
+      // });
       .post(`http://localhost:5000/api/admin/update-medicine/${id}`, formData)
       .then((response) => {
         console.log(response);

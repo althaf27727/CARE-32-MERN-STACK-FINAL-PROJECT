@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import { ToastContainer, toast } from "react-toastify";
 import { Navigate, useNavigate } from 'react-router-dom';
 import axios from "axios"
+import { BASE_URL } from '../../constants/API';
 
 const ProfileAddress = () => {
     const Token = localStorage.getItem("Token");
@@ -23,24 +24,25 @@ const ProfileAddress = () => {
       const handleSubmit = (event) => {
         event.preventDefault();
         axios
-        .post("http://localhost:5000/api/address/add-address", data,
-        {
-          headers: {
-            Authorization: `Bearer ${Token}`,
-          },
-          
-        })
-        
-        .then((response) => {
-          console.log(response);
-          navigate("/profile");
-          setData(response.data.data);
-        })
-        .catch((error) => {
-        
-          console.log(error);
-        });
-    };
+    //    
+    .post(`${BASE_URL}/api/address/add-address`, data,
+    {
+      headers: {
+        Authorization: `Bearer ${Token}`,
+      },
+      
+    })
+    
+    .then((response) => {
+      console.log(response);
+      navigate("/profile");
+      setData(response.data.data);
+    })
+    .catch((error) => {
+    
+      console.log(error);
+    });
+};
   
   
     return (

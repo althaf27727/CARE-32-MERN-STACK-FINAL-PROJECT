@@ -3,6 +3,7 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link, useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../constants/API";
 
 
 
@@ -11,22 +12,30 @@ const PatientDt = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/patientdetails/view-ptd")
+  //     .get("http://localhost:5000/api/patientdetails/view-ptd")
+  //     .then((response) => {
+  //       console.log(response);
+  //       setData(response.data.data);
+  //     });
+  // },[]);
+  .get(`${BASE_URL}/api/patientdetails/view-ptd`)
       .then((response) => {
         console.log(response);
         setData(response.data.data);
       });
   },[]);
   const navigate = useNavigate();
+
   const handleDelete = (id) => {
-   axios.delete(`http://localhost:5000/api/patientdetails/delete-ptd/${id}`)
+   axios
+  //  .delete(`http://localhost:5000/api/patientdetails/delete-ptd/${id}`)
 
-   navigate('/patientdetails');
-  };
-  
-  
+  //  navigate('/patientdetails');
+  // };
+  .delete(`${BASE_URL}/api/patientdetails/delete-ptd/${id}`)
 
- 
+  navigate('/patientdetails');
+ };
 
 
   return (

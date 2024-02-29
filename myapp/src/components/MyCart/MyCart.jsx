@@ -3,6 +3,7 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link, useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../constants/API";
 
 const MyCart = () => {
   var Token = localStorage.getItem("Token");
@@ -14,7 +15,12 @@ const MyCart = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/mycart/view-mycart", {
+      // .get("http://localhost:5000/api/mycart/view-mycart", {
+      //   headers: {
+      //     Authorization: `Bearer ${Token}`,
+      //   },
+      // })
+      .get(`${BASE_URL}/api/mycart/view-mycart`, {
         headers: {
           Authorization: `Bearer ${Token}`,
         },
@@ -28,7 +34,16 @@ const MyCart = () => {
 
   const navigate = useNavigate();
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/api/mycart/delete-cartitem/${id}`,{}, {
+    axios
+  //   .delete(`http://localhost:5000/api/mycart/delete-cartitem/${id}`,{}, {
+  //     headers: {
+  //       Authorization: `Bearer ${Token}`,
+  //     },
+  //   });
+  //   window.location.reload();
+  //   navigate("/view-mycart");
+  // };
+  .delete(`${BASE_URL}/api/mycart/delete-cartitem/${id}`,{}, {
       headers: {
         Authorization: `Bearer ${Token}`,
       },
@@ -37,27 +52,40 @@ const MyCart = () => {
     navigate("/view-mycart");
   };
 
-  const increment = (id) => {
-    axios
-      .post(`http://localhost:5000/api/mycart/increment/${id}/${UserId}`)
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    window.location.reload();
+  const increment = async (id, item) => {
+    try {
+      const updatedQuantity = item.quantity + 1;
+
+      const response = await axios.post(
+        `http://localhost:5000/api/mycart/increment/${id}/${UserId}`
+      );
+
+      console.log(response);
+      const updatedProduct = data.map((product) =>
+        product._id === id ? { ...product, quantity: updatedQuantity } : product
+      );
+      setData(updatedProduct);
+    } catch (error) {
+      console.log(error);
+    }
   };
-  const decrement = (id) => {
-    axios
-      .post(`http://localhost:5000/api/mycart/decrement/${id}/${UserId}`)
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    window.location.reload();
+
+  const decrement = async (id, item) => {
+    try {
+      const updatedQuantity = item.quantity - 1;
+
+      const response = await axios.post(
+        `http://localhost:5000/api/mycart/decrement/${id}/${UserId}`
+      );
+
+      console.log(response);
+      const updatedProduct = data.map((product) =>
+        product._id === id ? { ...product, quantity: updatedQuantity } : product
+      );
+      setData(updatedProduct);
+    } catch (error) {
+      console.log(error);
+    }
   };
   const subTotal = data.map((item) => {
     return item.price * item.quantity;
@@ -102,16 +130,16 @@ const MyCart = () => {
                         style={{ marginLeft: "5px" }}
                         type="submit"
                         variant="primary"
-                        onClick={() => increment(item._id)}
-                      >
+                        onClick={() => increment(item._id, item)}
+                        >
                         +
                       </Button>
                       <Button
                         style={{ marginLeft: "10px" }}
                         type="submit"
                         variant="primary"
-                        onClick={() => decrement(item._id)}
-                      >
+                        onClick={() => decrement(item._id, item)}
+                        >
                         -
                       </Button>
                       <h4 style={{ marginTop: "10px" }}>

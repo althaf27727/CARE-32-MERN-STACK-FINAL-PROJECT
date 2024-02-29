@@ -3,13 +3,14 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link, useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../constants/API";
 
 const ViewDoctor = () => {
 
         const [data, setData] = useState([]);
         useEffect(() => {
           axios
-            .get("http://localhost:5000/api/admin/view-doctor")
+            .get(`${BASE_URL}/api/admin/view-doctor`)
             .then((response) => {
               console.log(response);
               setData(response.data.data);
@@ -17,7 +18,8 @@ const ViewDoctor = () => {
         },[]);
         const navigate = useNavigate();
         const handleDelete = (id) => {
-         axios.delete(`http://localhost:5000/api/admin/delete-doctor/${id}`)
+         axios
+         .delete(`${BASE_URL}/api/admin/delete-doctor/${id}`)
       
          navigate('/view-doctor');
         };

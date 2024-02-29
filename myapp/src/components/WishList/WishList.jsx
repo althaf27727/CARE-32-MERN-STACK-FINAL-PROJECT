@@ -3,6 +3,7 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link, useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../constants/API";
 
 const WishList = () => {
   const Token = localStorage.getItem("Token");
@@ -11,7 +12,18 @@ const WishList = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/wishlist/view-wishlist", {
+  //     .get("http://localhost:5000/api/wishlist/view-wishlist", {
+  //       headers: {
+  //         Authorization: `Bearer ${Token}`,
+  //       },
+  //     })
+
+  //     .then((response) => {
+  //       console.log(response);
+  //       setData(response.data.data);
+  //     });
+  // }, []);
+  .get(`${BASE_URL}/api/wishlist/view-wishlist`, {
         headers: {
           Authorization: `Bearer ${Token}`,
         },
@@ -24,7 +36,13 @@ const WishList = () => {
   }, []);
   const navigate = useNavigate();
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/api/wishlist/delete-wishlist/${id}`);
+    axios
+  //   .delete(`http://localhost:5000/api/wishlist/delete-wishlist/${id}`);
+  //   window.location.reload();
+  //   window.location.reload();
+  //   navigate("/view-wishlist")
+  // };
+  .delete(`${BASE_URL}/api/wishlist/delete-wishlist/${id}`);
     window.location.reload();
     window.location.reload();
     navigate("/view-wishlist")

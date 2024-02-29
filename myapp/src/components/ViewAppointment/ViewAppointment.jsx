@@ -3,6 +3,7 @@ import axios from "axios"
 import Card from "react-bootstrap/Card";
 import { useNavigate } from 'react-router-dom';
 import Button from "react-bootstrap/Button";
+import { BASE_URL } from '../../constants/API';
 
 
 
@@ -11,7 +12,7 @@ const ViewAppointment = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
       axios
-        .get("http://localhost:5000/api/appointment/view-appointment")
+        .get(`${BASE_URL}/api/appointment/view-appointment`)
         .then((response) => {
           console.log(response);
           setData(response.data.data);
@@ -19,7 +20,8 @@ const ViewAppointment = () => {
     },[]);
     const navigate = useNavigate();
     const handleDelete = (id) => {
-     axios.delete(`http://localhost:5000/api/appointment/delete-appointment/${id}`)
+     axios
+     .delete(`${BASE_URL}/api/appointment/delete-appointment/${id}`)
      window.location.reload();
      navigate('/view-appointment');
     };
@@ -43,8 +45,6 @@ const ViewAppointment = () => {
             
             <Card.Text> Age: {item.age}</Card.Text>
             <Card.Text>{item.gender}</Card.Text>
-
-           
             <Card.Text>Address: {item.address}</Card.Text>
             <Card.Text>Booked date: {item.date}</Card.Text>
             <Card.Text>Doctor chosen: {item.doctorname}</Card.Text>
@@ -53,7 +53,7 @@ const ViewAppointment = () => {
             
           </Card.Body>
           <Button onClick={() => handleDelete(item._id)} variant="primary" type="submit">
-            Delete appointment
+            Delete Appointment
           </Button>
           
           

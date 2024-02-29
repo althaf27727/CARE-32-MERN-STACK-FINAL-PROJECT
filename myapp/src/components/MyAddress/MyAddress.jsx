@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import axios from 'axios'
 import { Link, useNavigate } from "react-router-dom";
 import './MyAddress.css'
+import { BASE_URL } from '../../constants/API';
 
 
 const MyAddress = () => {
@@ -15,7 +16,7 @@ const MyAddress = () => {
   const [address, setAddress] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/address/view-address", {
+      .get(`${BASE_URL}/api/address/view-address`, {
         headers: {
           Authorization: `Bearer ${Token}`,
         },

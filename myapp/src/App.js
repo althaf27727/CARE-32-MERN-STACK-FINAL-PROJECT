@@ -20,7 +20,6 @@ import ViewAppointment from "./components/ViewAppointment/ViewAppointment";
 import Profile from "./components/Profile/Profile";
 import "react-toastify/dist/ReactToastify.css";
 import AddMedicine from "./components/AddMedicine/AddMedicine";
-
 import ViewMedicines from "./components/ViewMedicines/ViewMedicines";
 import WishList from "./components/WishList/WishList";
 import MyCart from "./components/MyCart/MyCart";

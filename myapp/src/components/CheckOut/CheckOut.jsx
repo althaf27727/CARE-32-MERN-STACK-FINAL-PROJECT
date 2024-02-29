@@ -4,6 +4,7 @@ import { Navigate, useNavigate, Link, useParams } from 'react-router-dom';
 import "./CheckOut.css"
 import Button from "react-bootstrap/Button";
 import Card from 'react-bootstrap/Card';
+import { BASE_URL } from '../../constants/API';
 
 const CheckOut = () => {
     var Token = localStorage.getItem("Token");
@@ -18,7 +19,8 @@ const CheckOut = () => {
   
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/mycart/view-mycart", {
+     
+      .get(`${BASE_URL}/api/mycart/view-mycart`, {
         headers: {
           Authorization: `Bearer ${Token}`,
         },
@@ -33,7 +35,13 @@ const CheckOut = () => {
   const [address, setAddress] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/address/view-address", {
+      // .get("http://localhost:5000/api/address/view-address", {
+      //   headers: {
+      //     Authorization: `Bearer ${Token}`,
+      //   },
+      // })
+
+      .get(`${BASE_URL}/api/address/view-address`, {
         headers: {
           Authorization: `Bearer ${Token}`,
         },

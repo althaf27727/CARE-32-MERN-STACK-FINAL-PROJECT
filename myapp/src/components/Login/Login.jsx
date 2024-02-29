@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 // import { ToastContainer, toast } from "react-toastify";
 import { toast, Toaster } from "react-hot-toast";
 import './Login.css'
-
+import { BASE_URL } from "../../constants/API";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:5000/api/login", item)
+      .post(`${BASE_URL}/api/login`, item)
       .then((response) => {
         console.log(response);
         console.log(response.data.userRole);
@@ -46,8 +46,9 @@ const Login = () => {
     <div>
            <Toaster position="top-center" reverseOrder={false} />
       <center>
-
-        <Form className="glass" style={{marginTop:'150px'}} >
+      <div className="login-container">
+            <img src='https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt="Side Image" className="side-image" />
+        <Form  style={{marginTop:'150px'}} >
           <h1>Have we met login</h1>
           <Form.Group className="mb-3">
             <Form.Label>Username</Form.Label>
@@ -79,7 +80,9 @@ const Login = () => {
             Not yet registered? <Link to={`/register`}>Register</Link>{" "}
           </p>
         </Form>
+        </div>
       </center>
+      
     </div>
     </div>
 

@@ -5,6 +5,7 @@ import Card from "react-bootstrap/Card";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 import "./Payment.css";
+import { BASE_URL } from "../../constants/API";
 
 const Payment = () => {
   var Token = localStorage.getItem("Token");
@@ -23,7 +24,18 @@ const Payment = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/mycart/view-mycart", {
+  //     .get("http://localhost:5000/api/mycart/view-mycart", {
+  //       headers: {
+  //         Authorization: `Bearer ${Token}`,
+  //       },
+  //     })
+
+  //     .then((response) => {
+  //       console.log(response);
+       
+  //     });
+  // }, []);
+  .get(`${BASE_URL}/api/mycart/view-mycart`, {
         headers: {
           Authorization: `Bearer ${Token}`,
         },

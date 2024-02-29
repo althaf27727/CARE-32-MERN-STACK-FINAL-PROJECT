@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import { ToastContainer, toast } from "react-toastify";
 
 import axios from "axios";
+import { BASE_URL } from "../../constants/API";
 
 const AddMedicine = () => {
   const [data, setData] = useState({});
@@ -26,7 +27,7 @@ const AddMedicine = () => {
 
     event.preventDefault();
     axios
-      .post("http://localhost:5000/api/medicine/add-medicine", formData)
+      .post(`${BASE_URL}/api/medicine/add-medicine`, formData)
       .then((response) => {
         console.log(response);
         setData(response.data.data);

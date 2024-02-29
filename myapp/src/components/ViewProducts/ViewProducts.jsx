@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link, useNavigate } from 'react-router-dom';
 import './ViewProducts.css'
+import { BASE_URL } from '../../constants/API';
 
 
 const ViewProducts = () => {
@@ -12,7 +13,7 @@ const ViewProducts = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
       axios
-        .get("http://localhost:5000/api/medicine/view-medicine")
+        .get(`${BASE_URL}/api/medicine/view-medicine`)
         .then((response) => {
           console.log(response);
           setData(response.data.data);
@@ -20,7 +21,8 @@ const ViewProducts = () => {
     }, []);
     const navigate = useNavigate();
         const handleDelete = (id) => {
-         axios.delete(`http://localhost:5000/api/medicine/delete-medicine/${id}`)
+         axios
+         .delete(`${BASE_URL}/api/medicine/delete-medicine/${id}`)
       
          navigate('/view-products');
         };
