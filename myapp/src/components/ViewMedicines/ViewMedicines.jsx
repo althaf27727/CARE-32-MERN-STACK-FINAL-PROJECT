@@ -71,21 +71,18 @@ const ViewMedicines = () => {
               </Card.Body>
 
               {Token !== null ? (
-                <>
-                  <Link to={`/view-wishlist`}>
-                    <Button onClick={() => addToWishlist(item)}>
-                      {" "}
-                      Add to wishlist
-                    </Button>
-                  </Link>
-                  <br />
-                  <Link to={`/view-mycart`}>
-                    <Button onClick={() => addToMycart(item)}>
-                      {" "}
-                      Add to Cart
-                    </Button>
-                  </Link>
-                </>
+                <div className="button-container">
+                <Link to={`/view-wishlist`} className="link-button">
+                  <Button className="wishlist-button" onClick={() => addToWishlist(item)}>
+                    Add to wishlist
+                  </Button>
+                </Link>
+                <Link to={`/view-mycart`} className="link-button">
+                  <Button className="cart-button" onClick={() => addToMycart(item)}>
+                    Add to Cart
+                  </Button>
+                </Link>
+              </div>
               ) : (
                 ""
               )}
