@@ -77,6 +77,8 @@ const ViewMedicines = () => {
                     Add to wishlist
                   </Button>
                 </Link>
+                <hr />
+                <hr />
                 <Link to={`/view-mycart`} className="link-button">
                   <Button className="cart-button" onClick={() => addToMycart(item)}>
                     Add to Cart
