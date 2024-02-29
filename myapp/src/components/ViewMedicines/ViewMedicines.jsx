@@ -42,7 +42,7 @@ const ViewMedicines = () => {
 
   const addToWishlist = (item) => {
     axios
-    .post(`${BASE_URL}/api/wishlist/add-wishlist`, item,{
+      .post(`${BASE_URL}/api/wishlist/add-wishlist`, item,{
         headers:{
             Authorization: `Bearer ${Token}`
         }
@@ -57,21 +57,6 @@ const ViewMedicines = () => {
       
       
   };
-  //     .post("http://localhost:5000/api/wishlist/add-wishlist", item,{
-  //       headers:{
-  //           Authorization: `Bearer ${Token}`
-  //       }
-  //     })
-      
-  //     .then((response) => {
-  //       console.log(response);
-  //       setData(response.data.data);
-  //     });
-
-   
-      
-      
-  // };
   return (
     <div>
        <div className="box">
