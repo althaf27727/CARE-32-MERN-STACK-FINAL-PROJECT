@@ -5,6 +5,7 @@ import "./Register.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { BASE_URL } from "../../constants/API";
 
 
 
@@ -54,7 +55,7 @@ const Register = () => {
    
     
     
-    axios.post("http://localhost:5000/api/register", data)
+    axios.post(`${BASE_URL}/api/register`, data)
       .then((response) => {
         console.log(response);
         setData(response.data.data);

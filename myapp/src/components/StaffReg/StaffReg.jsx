@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import axios from "axios"
+import { BASE_URL } from '../../constants/API';
 const StaffReg = () => {
   const [data, setData] = useState({});
   const handlechange = (event) => {
@@ -12,7 +13,7 @@ const StaffReg = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post("http://localhost:5000/api/stfreg", data)
+    axios.post(`${BASE_URL}/api/stfreg`, data)
       .then((response) => {
         console.log(response);
         setData(response.data.data);
@@ -85,7 +86,6 @@ const StaffReg = () => {
             
           </Form.Group>
 
-          
 
           <Form.Group className="mb-3">
             <Form.Label>Password</Form.Label>

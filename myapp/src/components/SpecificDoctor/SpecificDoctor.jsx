@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import axios from "axios"
 import { useParams } from 'react-router-dom';
+import { BASE_URL } from '../../constants/API';
 
 const SpecificDoctor = () => {
     const {
@@ -21,7 +22,7 @@ const SpecificDoctor = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:5000/api/appointment//fill-appointment", data)
+      .post(`${BASE_URL}/api/appointment//fill-appointment`, data)
       .then((response) => {
         console.log(response);
       })

@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Profile.css";
 import axios from "axios";
+import { BASE_URL } from "../../constants/API";
 
 const Profile = () => {
   const Token = localStorage.getItem("Token");
@@ -30,7 +31,7 @@ const Profile = () => {
   useEffect(() => {
     if (Role == 2 || Role == 1) {
       axios
-        .get("http://localhost:5000/api/profile", {
+        .get(`${BASE_URL}/api/profile`, {
           headers: {
             Authorization: `Bearer ${Token}`,
           },
@@ -42,7 +43,7 @@ const Profile = () => {
     }
     if (Role == 3) {
       axios
-        .get("http://localhost:5000/api/staffprofile", {
+        .get(`${BASE_URL}/api/staffprofile`, {
           headers: {
             Authorization: `Bearer ${Token}`,
           },
