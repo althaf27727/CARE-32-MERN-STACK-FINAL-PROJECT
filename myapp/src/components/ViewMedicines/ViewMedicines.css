@@ -1,0 +1,29 @@
+.medicine-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 576px) {
+    .medicine-card {
+      width: 48%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .medicine-card {
+      width: 30%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .medicine-card {
+      width: 23%;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .medicine-card {
+      width: 18%;
+    }
+  }
+  
