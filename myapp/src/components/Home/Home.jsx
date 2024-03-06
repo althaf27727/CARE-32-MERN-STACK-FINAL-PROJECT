@@ -59,7 +59,6 @@ const Home = () => {
         src="https://img.freepik.com/free-photo/young-female-patient-visiting-dentist-office_496169-930.jpg?w=996&t=st=1709737763~exp=1709738363~hmac=83673175d13d576603b04833bced72e71c2d0386ce6866083d076d80c5b28fe3"
         alt="Service 1 Image"
       />{" "}
-      {/* Replace with your image */}
       <h3>Preventive Dentistry</h3>
       <p>Regular check-ups and cleanings to maintain optimal oral health.</p>
     </div>
