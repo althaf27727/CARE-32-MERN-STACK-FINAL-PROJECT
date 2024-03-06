@@ -1,94 +1,68 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import Carousel from "react-bootstrap/Carousel";
+import Card from "react-bootstrap/Card";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Button from "react-bootstrap/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { getDoctors } from "../../Redux/Reducer/doctorSlice";
 import { FadeLoader } from "react-spinners";
 import "./Home.css";
-import Carousel from "react-bootstrap/Carousel";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 
 const Home = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.doctors.doctorData);
   const status = useSelector((state) => state.doctors.status);
 
+  // const [data, setData] = useState([]);
   useEffect(() => {
+    // axios
+    //   .get(`${BASE_URL}/api/viewdoc/view-doctor`)
+    //   .then((response) => {
+    //     console.log(response);
+    //     setData(response.data.data);
+    //   });
     dispatch(getDoctors());
   }, []);
 
   if (status === "loading") {
+    // return <h1 className="text-centre">LOADING....</h1>
     return (
-      <div className="loading-spinner">
-        <FadeLoader color="#000000" size={20} speedMultiplier={1} />
-      </div>
+      <>
+        <div style={{ marginTop: "150px" }}>
+          <center>
+            <FadeLoader color="#000000" size={20} speedMultiplier={1} />
+          </center>
+        </div>
+      </>
     );
   }
-
   if (status === "error") {
     return (
-      <div className="error-message">
-        <h1>Error occurred! Please try again!</h1>
-      </div>
+      <center>
+        {" "}
+        <h1 style={{ marginTop: "100px" }}>Error occured! Please try again!</h1>
+      </center>
     );
   }
 
   return (
-    <div className="home-container">
-      <div className="header">
-        <h1 className="title">Specialized services.</h1>
-        <h2 className="subtitle">Superior outcomes.</h2>
-      </div>
+    <div>
+      <center>
+        <h1 className="hone">Specialized services.</h1>
+        <h1 className="htwo">Superior outcomes.</h1>
+      </center>
 
-      <div className="card-section">
-        <ul className="cards">
-          {/* Replace image paths with your actual image paths */}
-          <li className="cards_item">
-            <Card>
-              <Card.Img variant="top" src="./images/CardOne.png" />
-              <Card.Body>
-                <Card.Title>Care32</Card.Title>
-                <Card.Text>care32</Card.Text>
-              </Card.Body>
-            </Card>
-          </li>
-          <li className="cards_item">
-            <Card>
-              <Card.Img variant="top" src="./images/CardTwo.png" />
-              <Card.Body>
-                <Card.Title>Care32</Card.Title>
-                <Card.Text>care32</Card.Text>
-              </Card.Body>
-            </Card>
-          </li>
-          <li className="cards_item">
-            <Card>
-              <Card.Img variant="top" src="./images/CardThree.png" />
-              <Card.Body>
-                <Card.Title>Implant</Card.Title>
-                <Card.Text>Dental implants are medical devices surgically</Card.Text>
-              </Card.Body>
-            </Card>
-          </li>
-        </ul>
-      </div>
-
-      <div className="button-section">
-        <Link to={`/appointment`}>
-          <Button variant="primary">Request Appointment</Button>
-        </Link>
-      </div>
-
-      <div className="image-section">
-        <Carousel>
-          <Carousel.Item>
-            <img className="d-block w-100" src="https://your-image-url-1.jpg" alt="First slide" />
-          </Carousel.Item>
-          <Carousel.Item>
-            <img className="d-block w-100" src="https://your-image-url-2.jpg" alt="Second slide" />
-          </Carousel.Item>
-        </Carousel>
-      </div>
+      
+        
+            <center>
+            <Link to={`/appointment`}>
+              <button style={{ color: "white", backgroundColor: "#008CBA",marginTop:'10px' }}>
+                Request Appointment
+              </button>
+              </Link>
+            </center>
+        
     </div>
   );
 };
