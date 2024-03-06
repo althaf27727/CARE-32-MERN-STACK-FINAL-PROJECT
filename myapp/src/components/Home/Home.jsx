@@ -52,8 +52,8 @@ const Home = () => {
         <h1 className="hone">Specialized services.</h1>
         <h1 className="htwo">Superior outcomes.</h1>
       </center>
-      <>
-  <div id="services" className="card-container">
+  
+  <div id="services" className="cardcontainer">
     <div className="card">
       <img
         src="https://img.freepik.com/free-photo/young-female-patient-visiting-dentist-office_496169-930.jpg?w=996&t=st=1709737763~exp=1709738363~hmac=83673175d13d576603b04833bced72e71c2d0386ce6866083d076d80c5b28fe3"
@@ -78,14 +78,8 @@ const Home = () => {
       </p>
     </div>
   </div>
-  <div className="footer">
-    <p>
-      Contact us to schedule an appointment and start your journey to a
-      healthier smile.
-    </p>
-    <p>© 2024 Your Dental Clinic. All rights reserved.</p>
-  </div>
-</>
+
+
 
       
         
