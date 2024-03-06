@@ -111,10 +111,10 @@ img {
   overflow: hidden;
 }
 
-.card_content {
+/* .card_content {
   padding: 1rem;
   background: linear-gradient(to bottom left, #2b2a2a 40%, #000000 100%);
-}
+} */
 
 .card_title {
   color: #ffffff;

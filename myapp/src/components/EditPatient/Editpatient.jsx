@@ -10,7 +10,7 @@ const Editpatient = () => {
   console.log(id);
 
   const [data, setData] = useState({});
-  
+
   useEffect(() => {
     axios
       .get(`http://localhost:5000/api/patientdetails/view-ptd/${id}`)
@@ -18,7 +18,7 @@ const Editpatient = () => {
         console.log(response);
         setData(response.data.data);
       });
-  },[id]);
+  }, [id]);
 
   const handlechange = (event) => {
     const name = event.target.name;
@@ -36,10 +36,8 @@ const Editpatient = () => {
       .catch((error) => {
         console.log(error);
       });
-      navigate('/patientdetails');
+    navigate("/patientdetails");
   };
-  
-   
 
   return (
     <div>
