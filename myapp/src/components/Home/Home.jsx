@@ -79,7 +79,32 @@ const Home = () => {
     </div>
   </div>
 
+ 
+      <div
+        className="cards"
+        style={{
+        
+        }}
+      >
+      
+        {data.map((item) => (
+          <Card className="carddd">
+            
+            <Card.Body>
+            <center><Card.Title>{item.doctorname}</Card.Title></center>  
 
+            <center><Card.Text>{item.specialization}</Card.Text></center>  
+            </Card.Body>
+            <Link to={`specific-doctor/${item.doctorname}`}>
+            <center>  <Button style={{marginBottom:"10px"}}>Book appointment</Button> </center>
+            </Link>
+          </Card>
+        ))} 
+
+
+
+            </div> 
+    
 
       
         

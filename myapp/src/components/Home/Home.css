@@ -26,3 +26,38 @@
   border-radius: 8px;
   margin-bottom: 15px;
 }
+
+
+
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px; /* Adjust the gap between cards */
+  }
+
+  .carddd {
+    width: 300px; /* Adjust the width of each card */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .carddd:hover {
+    transform: scale(1.05); /* Adjust the scale on hover */
+  }
+
+  @media (max-width: 768px) {
+    /* Add responsive styles for smaller devices here */
+    .cards {
+      justify-content: center;
+      gap: 10px; /* Adjust the gap for smaller screens */
+    }
+
+    .carddd {
+      width: 100%; /* Make cards full width on smaller screens */
+    }
+  }
+
