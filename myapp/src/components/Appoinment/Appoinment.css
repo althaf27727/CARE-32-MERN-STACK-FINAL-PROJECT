@@ -70,3 +70,21 @@
 
 
 
+ .formone {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .formone {
+      max-width: 100%;
+    }
+
+    .formcontrol {
+      width: 100%;
+    }
+
+    .button {
+      width: 100%;
+    }
+  }
